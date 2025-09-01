@@ -1095,7 +1095,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
                   addItem(
                     {
                       type: MessageType.INFO,
-                      text: 'Switched to fallback model. Tip: Press Ctrl+P to recall your previous prompt and submit it again if you wish.',
+                      text: '已切换到备用模型。提示：按 Ctrl+P 回忆您的上一个提示并再次提交（如果需要）。',
                     },
                     Date.now(),
                   );
@@ -1156,7 +1156,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
             <>
               <AuthInProgress
                 onTimeout={() => {
-                  setAuthError('Authentication timed out. Please try again.');
+                  setAuthError('身份验证超时。请重试。');
                   cancelAuthentication();
                   openAuthDialog();
                 }}

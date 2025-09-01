@@ -48,7 +48,7 @@ export function AuthInProgress({
     >
       {timedOut ? (
         <Text color={Colors.AccentRed}>
-          Authentication timed out. Please try again.
+          身份验证超时。请重试。
         </Text>
       ) : (
         <Box>
