@@ -29,7 +29,12 @@ export const GeminiPrivacyNotice = ({ onExit }: GeminiPrivacyNoticeProps) => {
       </Text>
       <Newline />
       <Text>
-        通过使用 Gemini API<Text color={Colors.AccentBlue}>[1]</Text>、Google AI Studio<Text color={Colors.AccentRed}>[2]</Text> 以及其他引用这些条款的 Google 开发者服务（统称为“API”或“服务”），您同意遵守 Google API 服务条款（“API 条款”）<Text color={Colors.AccentGreen}>[3]</Text> 和 Gemini API 附加服务条款（“附加条款”）<Text color={Colors.AccentPurple}>[4]</Text>。
+        通过使用 Gemini API<Text color={Colors.AccentBlue}>[1]</Text>、Google AI
+        Studio<Text color={Colors.AccentRed}>[2]</Text> 以及其他引用这些条款的
+        Google 开发者服务（统称为“API”或“服务”），您同意遵守 Google API
+        服务条款（“API 条款”）<Text color={Colors.AccentGreen}>[3]</Text> 和
+        Gemini API 附加服务条款（“附加条款”）
+        <Text color={Colors.AccentPurple}>[4]</Text>。
       </Text>
       <Newline />
       <Text>

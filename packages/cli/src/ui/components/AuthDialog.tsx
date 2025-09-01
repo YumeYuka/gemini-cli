@@ -122,7 +122,7 @@ export function AuthDialog({
         if (settings.merged.security?.auth?.selectedType === undefined) {
           // Prevent exiting if no auth method is set
           setErrorMessage(
-            'You must select an auth method to proceed. Press Ctrl+C twice to exit.',
+            '您必须选择一种身份验证方法才能继续。按两次 Ctrl+C 退出。',
           );
           return;
         }
@@ -140,9 +140,9 @@ export function AuthDialog({
       padding={1}
       width="100%"
     >
-      <Text bold>Get started</Text>
+      <Text bold>开始使用</Text>
       <Box marginTop={1}>
-        <Text>How would you like to authenticate for this project?</Text>
+        <Text>您希望如何为此项目进行身份验证？</Text>
       </Box>
       <Box marginTop={1}>
         <RadioButtonSelect
@@ -157,10 +157,10 @@ export function AuthDialog({
         </Box>
       )}
       <Box marginTop={1}>
-        <Text color={Colors.Gray}>(Use Enter to select)</Text>
+        <Text color={Colors.Gray}>(按 Enter 键选择)</Text>
       </Box>
       <Box marginTop={1}>
-        <Text>Terms of Services and Privacy Notice for Gemini CLI</Text>
+        <Text>Gemini CLI 的服务条款和隐私声明</Text>
       </Box>
       <Box marginTop={1}>
         <Text color={Colors.AccentBlue}>

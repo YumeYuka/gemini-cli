@@ -64,11 +64,14 @@ export const CloudFreePrivacyNotice = ({
       </Text>
       <Newline />
       <Text>
-        本声明和我们的隐私政策<Text color={Colors.AccentBlue}>[1]</Text> 描述了 Gemini Code Assist 如何处理您的数据。请仔细阅读。
+        本声明和我们的隐私政策<Text color={Colors.AccentBlue}>[1]</Text> 描述了
+        Gemini Code Assist 如何处理您的数据。请仔细阅读。
       </Text>
       <Newline />
       <Text>
-        当您使用 Gemini CLI 的 Gemini Code Assist 个人版时，Google 会收集您的提示、相关代码、生成的输出、代码编辑、相关功能使用信息以及您的反馈，以提供、改进和开发 Google 产品和服务以及机器学习技术。
+        当您使用 Gemini CLI 的 Gemini Code Assist 个人版时，Google
+        会收集您的提示、相关代码、生成的输出、代码编辑、相关功能使用信息以及您的反馈，以提供、改进和开发
+        Google 产品和服务以及机器学习技术。
       </Text>
       <Newline />
       <Text>

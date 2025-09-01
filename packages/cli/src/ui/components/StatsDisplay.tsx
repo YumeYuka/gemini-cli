@@ -82,16 +82,16 @@ const ModelUsageTable: React.FC<{
       {/* Header */}
       <Box>
         <Box width={nameWidth}>
-          <Text bold>Model Usage</Text>
+          <Text bold>模型使用情况</Text>
         </Box>
         <Box width={requestsWidth} justifyContent="flex-end">
-          <Text bold>Reqs</Text>
+          <Text bold>请求数</Text>
         </Box>
         <Box width={inputTokensWidth} justifyContent="flex-end">
-          <Text bold>Input Tokens</Text>
+          <Text bold>输入 Tokens</Text>
         </Box>
         <Box width={outputTokensWidth} justifyContent="flex-end">
-          <Text bold>Output Tokens</Text>
+          <Text bold>输出 Tokens</Text>
         </Box>
       </Box>
       {/* Divider */}
@@ -128,13 +128,13 @@ const ModelUsageTable: React.FC<{
       {cacheEfficiency > 0 && (
         <Box flexDirection="column" marginTop={1}>
           <Text>
-            <Text color={theme.status.success}>Savings Highlight:</Text>{' '}
+            <Text color={theme.status.success}>节省亮点：</Text>{' '}
             {totalCachedTokens.toLocaleString()} ({cacheEfficiency.toFixed(1)}
-            %) of input tokens were served from the cache, reducing costs.
+            %) 的输入 tokens 来自缓存，降低了成本。
           </Text>
           <Box height={1} />
           <Text color={theme.text.secondary}>
-            » Tip: For a full token breakdown, run `/stats model`.
+            » 提示：要查看完整的 token 细分，请运行 `/stats model`。
           </Text>
         </Box>
       )}
@@ -184,7 +184,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
     }
     return (
       <Text bold color={theme.text.accent}>
-        Session Stats
+        会话统计
       </Text>
     );
   };
@@ -200,22 +200,22 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
       {renderTitle()}
       <Box height={1} />
 
-      <Section title="Interaction Summary">
-        <StatRow title="Session ID:">
+      <Section title="交互摘要">
+        <StatRow title="会话 ID:">
           <Text>{stats.sessionId}</Text>
         </StatRow>
-        <StatRow title="Tool Calls:">
+        <StatRow title="工具调用:">
           <Text>
             {tools.totalCalls} ({' '}
             <Text color={theme.status.success}>✓ {tools.totalSuccess}</Text>{' '}
             <Text color={theme.status.error}>x {tools.totalFail}</Text> )
           </Text>
         </StatRow>
-        <StatRow title="Success Rate:">
+        <StatRow title="成功率:">
           <Text color={successColor}>{computed.successRate.toFixed(1)}%</Text>
         </StatRow>
         {computed.totalDecisions > 0 && (
-          <StatRow title="User Agreement:">
+          <StatRow title="用户同意率:">
             <Text color={agreementColor}>
               {computed.agreementRate.toFixed(1)}%{' '}
               <Text color={theme.text.secondary}>
@@ -226,7 +226,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
         )}
         {files &&
           (files.totalLinesAdded > 0 || files.totalLinesRemoved > 0) && (
-            <StatRow title="Code Changes:">
+            <StatRow title="代码更改:">
               <Text>
                 <Text color={theme.status.success}>
                   +{files.totalLinesAdded}
@@ -239,14 +239,14 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
           )}
       </Section>
 
-      <Section title="Performance">
-        <StatRow title="Wall Time:">
+      <Section title="性能">
+        <StatRow title="总时间:">
           <Text>{duration}</Text>
         </StatRow>
-        <StatRow title="Agent Active:">
+        <StatRow title="代理活动时间:">
           <Text>{formatDuration(computed.agentActiveTime)}</Text>
         </StatRow>
-        <SubStatRow title="API Time:">
+        <SubStatRow title="API 时间:">
           <Text>
             {formatDuration(computed.totalApiTime)}{' '}
             <Text color={theme.text.secondary}>
@@ -254,7 +254,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
             </Text>
           </Text>
         </SubStatRow>
-        <SubStatRow title="Tool Time:">
+        <SubStatRow title="工具时间:">
           <Text>
             {formatDuration(computed.totalToolTime)}{' '}
             <Text color={theme.text.secondary}>

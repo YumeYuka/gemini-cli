@@ -102,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({
         paddingTop={isNarrow ? 1 : 0}
       >
         {isTrustedFolder === false ? (
-          <Text color={theme.status.warning}>untrusted</Text>
+          <Text color={theme.status.warning}>未受信任</Text>
         ) : process.env['SANDBOX'] &&
           process.env['SANDBOX'] !== 'sandbox-exec' ? (
           <Text color="green">
@@ -110,14 +110,14 @@ export const Footer: React.FC<FooterProps> = ({
           </Text>
         ) : process.env['SANDBOX'] === 'sandbox-exec' ? (
           <Text color={theme.status.warning}>
-            macOS Seatbelt{' '}
+            macOS 安全沙箱{' '}
             <Text color={theme.text.secondary}>
               ({process.env['SEATBELT_PROFILE']})
             </Text>
           </Text>
         ) : (
           <Text color={theme.status.error}>
-            no sandbox <Text color={theme.text.secondary}>(see /docs)</Text>
+            无沙箱 <Text color={theme.text.secondary}>(参见 /docs)</Text>
           </Text>
         )}
       </Box>

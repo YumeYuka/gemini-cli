@@ -355,7 +355,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
     addItem(
       {
         type: MessageType.INFO,
-        text: 'Refreshing hierarchical memory (GEMINI.md or other context files)...',
+        text: '正在刷新分层内存（GEMINI.md 或其他上下文文件）...',
       },
       Date.now(),
     );
@@ -370,7 +370,7 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
         settings.merged,
         config.getExtensionContextFilePaths(),
         config.getFolderTrust(),
-        settings.merged.context?.importFormat || 'tree', // Use setting or default to 'tree'
+        settings.merged.context?.importFormat || 'tree', // 使用设置或默认为 'tree'
         config.getFileFilteringOptions(),
       );
 
@@ -381,13 +381,17 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
       addItem(
         {
           type: MessageType.INFO,
-          text: `Memory refreshed successfully. ${memoryContent.length > 0 ? `Loaded ${memoryContent.length} characters from ${fileCount} file(s).` : 'No memory content found.'}`,
+          text: `内存刷新成功。${
+            memoryContent.length > 0
+              ? `已从 ${fileCount} 个文件中加载 ${memoryContent.length} 个字符。`
+              : '未找到内存内容。'
+          }`,
         },
         Date.now(),
       );
       if (config.getDebugMode()) {
         console.log(
-          `[DEBUG] Refreshed memory content in config: ${memoryContent.substring(0, 200)}...`,
+          `[DEBUG] 配置中的内存内容已刷新: ${memoryContent.substring(0, 200)}...`,
         );
       }
     } catch (error) {
@@ -395,11 +399,11 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
       addItem(
         {
           type: MessageType.ERROR,
-          text: `Error refreshing memory: ${errorMessage}`,
+          text: `刷新内存时出错: ${errorMessage}`,
         },
         Date.now(),
       );
-      console.error('Error refreshing memory:', error);
+      console.error('刷新内存时出错:', error);
     }
   }, [config, addItem, settings.merged]);
 
@@ -445,41 +449,41 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
         // Check if this is a Pro quota exceeded error
         if (error && isProQuotaExceededError(error)) {
           if (isPaidTier) {
-            message = `⚡ You have reached your daily ${currentModel} quota limit.
-⚡ You can choose to authenticate with a paid API key or continue with the fallback model.
-⚡ To continue accessing the ${currentModel} model today, consider using /auth to switch to using a paid API key from AI Studio at https://aistudio.google.com/apikey`;
+            message = `⚡ 您已达到每日 ${currentModel} 配额限制。
+⚡ 您可以选择使用付费 API 密钥进行身份验证或继续使用备用模型。
+⚡ 若要继续访问 ${currentModel} 模型，请考虑使用 /auth 切换到 AI Studio 的付费 API 密钥：https://aistudio.google.com/apikey`;
           } else {
-            message = `⚡ You have reached your daily ${currentModel} quota limit.
-⚡ You can choose to authenticate with a paid API key or continue with the fallback model.
-⚡ To increase your limits, upgrade to a Gemini Code Assist Standard or Enterprise plan with higher limits at https://goo.gle/set-up-gemini-code-assist
-⚡ Or you can utilize a Gemini API Key. See: https://goo.gle/gemini-cli-docs-auth#gemini-api-key
-⚡ You can switch authentication methods by typing /auth`;
+            message = `⚡ 您已达到每日 ${currentModel} 配额限制。
+⚡ 您可以选择使用付费 API 密钥进行身份验证或继续使用备用模型。
+⚡ 若要提高限制，请升级到具有更高限制的 Gemini Code Assist Standard 或 Enterprise 计划：https://goo.gle/set-up-gemini-code-assist
+⚡ 或者您可以使用 Gemini API 密钥。请参阅：https://goo.gle/gemini-cli-docs-auth#gemini-api-key
+⚡ 您可以通过输入 /auth 切换身份验证方法。`;
           }
         } else if (error && isGenericQuotaExceededError(error)) {
           if (isPaidTier) {
-            message = `⚡ You have reached your daily quota limit.
-⚡ Automatically switching from ${currentModel} to ${fallbackModel} for the remainder of this session.
-⚡ To continue accessing the ${currentModel} model today, consider using /auth to switch to using a paid API key from AI Studio at https://aistudio.google.com/apikey`;
+            message = `⚡ 您已达到每日配额限制。
+⚡ 自动从 ${currentModel} 切换到 ${fallbackModel}，本次会话的剩余时间将使用备用模型。
+⚡ 若要继续访问 ${currentModel} 模型，请考虑使用 /auth 切换到 AI Studio 的付费 API 密钥：https://aistudio.google.com/apikey`;
           } else {
-            message = `⚡ You have reached your daily quota limit.
-⚡ Automatically switching from ${currentModel} to ${fallbackModel} for the remainder of this session.
-⚡ To increase your limits, upgrade to a Gemini Code Assist Standard or Enterprise plan with higher limits at https://goo.gle/set-up-gemini-code-assist
-⚡ Or you can utilize a Gemini API Key. See: https://goo.gle/gemini-cli-docs-auth#gemini-api-key
-⚡ You can switch authentication methods by typing /auth`;
+            message = `⚡ 您已达到每日配额限制。
+⚡ 自动从 ${currentModel} 切换到 ${fallbackModel}，本次会话的剩余时间将使用备用模型。
+⚡ 若要提高限制，请升级到具有更高限制的 Gemini Code Assist Standard 或 Enterprise 计划：https://goo.gle/set-up-gemini-code-assist
+⚡ 或者您可以使用 Gemini API 密钥。请参阅：https://goo.gle/gemini-cli-docs-auth#gemini-api-key
+⚡ 您可以通过输入 /auth 切换身份验证方法。`;
           }
         } else {
           if (isPaidTier) {
             // Default fallback message for other cases (like consecutive 429s)
-            message = `⚡ Automatically switching from ${currentModel} to ${fallbackModel} for faster responses for the remainder of this session.
-⚡ Possible reasons for this are that you have received multiple consecutive capacity errors or you have reached your daily ${currentModel} quota limit
-⚡ To continue accessing the ${currentModel} model today, consider using /auth to switch to using a paid API key from AI Studio at https://aistudio.google.com/apikey`;
+            message = `⚡ 自动从 ${currentModel} 切换到 ${fallbackModel}，本次会话的剩余时间将使用备用模型。
+⚡ 可能的原因是您收到多次连续的容量错误或已达到每日 ${currentModel} 配额限制
+⚡ 若要继续访问 ${currentModel} 模型，请考虑使用 /auth 切换到 AI Studio 的付费 API 密钥：https://aistudio.google.com/apikey`;
           } else {
             // Default fallback message for other cases (like consecutive 429s)
-            message = `⚡ Automatically switching from ${currentModel} to ${fallbackModel} for faster responses for the remainder of this session.
-⚡ Possible reasons for this are that you have received multiple consecutive capacity errors or you have reached your daily ${currentModel} quota limit
-⚡ To increase your limits, upgrade to a Gemini Code Assist Standard or Enterprise plan with higher limits at https://goo.gle/set-up-gemini-code-assist
-⚡ Or you can utilize a Gemini API Key. See: https://goo.gle/gemini-cli-docs-auth#gemini-api-key
-⚡ You can switch authentication methods by typing /auth`;
+            message = `⚡ 自动从 ${currentModel} 切换到 ${fallbackModel}，本次会话的剩余时间将使用备用模型。
+⚡ 可能的原因是您收到多次连续的容量错误或已达到每日 ${currentModel} 配额限制
+⚡ 若要提高限制，请升级到具有更高限制的 Gemini Code Assist Standard 或 Enterprise 计划：https://goo.gle/set-up-gemini-code-assist
+⚡ 或者您可以使用 Gemini API 密钥。请参阅：https://goo.gle/gemini-cli-docs-auth#gemini-api-key
+⚡ 您可以通过输入 /auth 切换身份验证方法。`;
           }
         }
 
@@ -1350,13 +1354,8 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
                 </Text>
               ) : (
                 <>
-                  <Text color={Colors.AccentRed}>
-                    Initialization Error: {initError}
-                  </Text>
-                  <Text color={Colors.AccentRed}>
-                    {' '}
-                    Please check API key and configuration.
-                  </Text>
+                  <Text color={Colors.AccentRed}>初始化错误: {initError}</Text>
+                  <Text color={Colors.AccentRed}>请检查 API 密钥和配置。</Text>
                 </>
               )}
             </Box>

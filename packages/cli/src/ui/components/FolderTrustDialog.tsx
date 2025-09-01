@@ -58,7 +58,7 @@ export const FolderTrustDialog: React.FC<FolderTrustDialogProps> = ({
       value: FolderTrustChoice.TRUST_PARENT,
     },
     {
-      label: "不信任 (esc)",
+      label: '不信任 (esc)',
       value: FolderTrustChoice.DO_NOT_TRUST,
     },
   ];
@@ -76,7 +76,8 @@ export const FolderTrustDialog: React.FC<FolderTrustDialogProps> = ({
         <Box flexDirection="column" marginBottom={1}>
           <Text bold>您信任此文件夹吗？</Text>
           <Text>
-            信任文件夹允许 Gemini 执行其建议的命令。这是一项安全功能，可防止在不受信任的目录中意外执行。
+            信任文件夹允许 Gemini
+            执行其建议的命令。这是一项安全功能，可防止在不受信任的目录中意外执行。
           </Text>
         </Box>
 

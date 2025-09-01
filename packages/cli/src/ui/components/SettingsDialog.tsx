@@ -776,9 +776,7 @@ export function SettingsDialog({
         </Box>
 
         <Box height={1} />
-        <Text color={Colors.Gray}>
-          (使用 Enter 键选择，Tab 键切换焦点)
-        </Text>
+        <Text color={Colors.Gray}>(使用 Enter 键选择，Tab 键切换焦点)</Text>
         {showRestartPrompt && (
           <Text color={Colors.AccentYellow}>
             要查看更改，必须重新启动 Gemini CLI。按 r 键退出并立即应用更改。

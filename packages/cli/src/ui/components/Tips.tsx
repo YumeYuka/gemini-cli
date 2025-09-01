@@ -18,12 +18,8 @@ export const Tips: React.FC<TipsProps> = ({ config }) => {
   return (
     <Box flexDirection="column">
       <Text color={Colors.Foreground}>入门提示：</Text>
-      <Text color={Colors.Foreground}>
-        1. 提问、编辑文件或运行命令。
-      </Text>
-      <Text color={Colors.Foreground}>
-        2. 越具体越好。
-      </Text>
+      <Text color={Colors.Foreground}>1. 提问、编辑文件或运行命令。</Text>
+      <Text color={Colors.Foreground}>2. 越具体越好。</Text>
       {geminiMdFileCount === 0 && (
         <Text color={Colors.Foreground}>
           3. 创建{' '}

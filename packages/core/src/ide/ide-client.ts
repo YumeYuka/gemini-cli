@@ -69,8 +69,7 @@ export class IdeClient {
   private client: Client | undefined = undefined;
   private state: IDEConnectionState = {
     status: IDEConnectionStatus.Disconnected,
-    details:
-      'IDE integration is currently disabled. To enable it, run /ide enable.',
+    details: 'IDE 集成当前已禁用。要启用它，请运行 /ide enable.',
   };
   private currentIde: DetectedIde | undefined;
   private currentIdeDisplayName: string | undefined;
@@ -107,7 +106,7 @@ export class IdeClient {
     if (!this.currentIde || !this.currentIdeDisplayName) {
       this.setState(
         IDEConnectionStatus.Disconnected,
-        `IDE integration is not supported in your current environment. To use this feature, run Gemini CLI in one of these supported IDEs: VS Code or VS Code forks`,
+        `IDE 集成在您当前的环境中不受支持。要使用此功能，请在以下支持的 IDE 中运行 Gemini CLI：VS Code 或 VS Code 衍生版本`,
         false,
       );
       return;
@@ -168,7 +167,7 @@ export class IdeClient {
 
     this.setState(
       IDEConnectionStatus.Disconnected,
-      `Failed to connect to IDE companion extension in ${this.currentIdeDisplayName}. Please ensure the extension is running. To install the extension, run /ide install.`,
+      `无法连接到 ${this.currentIdeDisplayName} 中的 IDE 辅助扩展。请确保扩展正在运行。要安装扩展，请运行 /ide install.`,
       true,
     );
   }
@@ -252,7 +251,7 @@ export class IdeClient {
     this.diffResponses.clear();
     this.setState(
       IDEConnectionStatus.Disconnected,
-      'IDE integration disabled. To enable it again, run /ide enable.',
+      'IDE 集成已禁用。要再次启用它，请运行 /ide enable.',
     );
     this.client?.close();
   }
@@ -309,14 +308,14 @@ export class IdeClient {
     if (ideWorkspacePath === undefined) {
       return {
         isValid: false,
-        error: `Failed to connect to IDE companion extension in ${currentIdeDisplayName}. Please ensure the extension is running. To install the extension, run /ide install.`,
+        error: `无法连接到 ${currentIdeDisplayName} 中的 IDE 辅助扩展。请确保扩展正在运行。要安装扩展，请运行 /ide install.`,
       };
     }
 
     if (ideWorkspacePath === '') {
       return {
         isValid: false,
-        error: `To use this feature, please open a workspace folder in ${currentIdeDisplayName} and try again.`,
+        error: `要使用此功能，请在 ${currentIdeDisplayName} 中打开一个工作区文件夹，然后重试。`,
       };
     }
 
@@ -330,9 +329,7 @@ export class IdeClient {
     if (!isWithinWorkspace) {
       return {
         isValid: false,
-        error: `Directory mismatch. Gemini CLI is running in a different location than the open workspace in ${currentIdeDisplayName}. Please run the CLI from one of the following directories: ${ideWorkspacePaths.join(
-          ', ',
-        )}`,
+        error: `目录不匹配。Gemini CLI 正在与 ${currentIdeDisplayName} 中打开的工作区不同的位置运行。请从以下目录之一运行 CLI：${ideWorkspacePaths.join(', ')}`,
       };
     }
     return { isValid: true };
@@ -361,11 +358,11 @@ export class IdeClient {
           args = parsedArgs;
         } else {
           logger.error(
-            'GEMINI_CLI_IDE_SERVER_STDIO_ARGS must be a JSON array string.',
+            'GEMINI_CLI_IDE_SERVER_STDIO_ARGS 必须是一个 JSON 数组字符串。',
           );
         }
       } catch (e) {
-        logger.error('Failed to parse GEMINI_CLI_IDE_SERVER_STDIO_ARGS:', e);
+        logger.error('无法解析 GEMINI_CLI_IDE_SERVER_STDIO_ARGS:', e);
       }
     }
 
@@ -427,14 +424,14 @@ export class IdeClient {
     this.client.onerror = (_error) => {
       this.setState(
         IDEConnectionStatus.Disconnected,
-        `IDE connection error. The connection was lost unexpectedly. Please try reconnecting by running /ide enable`,
+        `IDE 连接错误。连接意外丢失。请尝试通过运行 /ide enable 重新连接`,
         true,
       );
     };
     this.client.onclose = () => {
       this.setState(
         IDEConnectionStatus.Disconnected,
-        `IDE connection error. The connection was lost unexpectedly. Please try reconnecting by running /ide enable`,
+        `IDE 连接错误。连接意外丢失。请尝试通过运行 /ide enable 重新连接`,
         true,
       );
     };
