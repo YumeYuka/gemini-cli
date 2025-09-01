@@ -118,22 +118,22 @@ export const ToolConfirmationMessage: React.FC<
           padding={1}
           overflow="hidden"
         >
-          <Text>Modify in progress: </Text>
+          <Text>修改进行中: </Text>
           <Text color={Colors.AccentGreen}>
-            Save and close external editor to continue
+            保存并关闭外部编辑器以继续
           </Text>
         </Box>
       );
     }
 
-    question = `Apply this change?`;
+    question = `应用此更改？`;
     options.push({
-      label: 'Yes, allow once',
+      label: '是，允许一次',
       value: ToolConfirmationOutcome.ProceedOnce,
     });
     if (isTrustedFolder) {
       options.push({
-        label: 'Yes, allow always',
+        label: '是，始终允许',
         value: ToolConfirmationOutcome.ProceedAlways,
       });
     }
@@ -144,11 +144,11 @@ export const ToolConfirmationMessage: React.FC<
       });
     } else {
       options.push({
-        label: 'Modify with external editor',
+        label: '使用外部编辑器修改',
         value: ToolConfirmationOutcome.ModifyWithEditor,
       });
       options.push({
-        label: 'No, suggest changes (esc)',
+        label: '否，建议更改 (esc)',
         value: ToolConfirmationOutcome.Cancel,
       });
     }
@@ -167,7 +167,7 @@ export const ToolConfirmationMessage: React.FC<
 
     question = `Allow execution of: '${executionProps.rootCommand}'?`;
     options.push({
-      label: 'Yes, allow once',
+      label: '是，允许一次',
       value: ToolConfirmationOutcome.ProceedOnce,
     });
     if (isTrustedFolder) {
@@ -207,12 +207,12 @@ export const ToolConfirmationMessage: React.FC<
 
     question = `Do you want to proceed?`;
     options.push({
-      label: 'Yes, allow once',
+      label: '是，允许一次',
       value: ToolConfirmationOutcome.ProceedOnce,
     });
     if (isTrustedFolder) {
       options.push({
-        label: 'Yes, allow always',
+        label: '是，始终允许',
         value: ToolConfirmationOutcome.ProceedAlways,
       });
     }
@@ -252,7 +252,7 @@ export const ToolConfirmationMessage: React.FC<
 
     question = `Allow execution of MCP tool "${mcpProps.toolName}" from server "${mcpProps.serverName}"?`;
     options.push({
-      label: 'Yes, allow once',
+      label: '是，允许一次',
       value: ToolConfirmationOutcome.ProceedOnce,
     });
     if (isTrustedFolder) {

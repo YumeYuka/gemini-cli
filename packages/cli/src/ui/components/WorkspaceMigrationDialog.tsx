@@ -46,9 +46,8 @@ export function WorkspaceMigrationDialog(props: {
         {failedExtensions.length > 0 ? (
           <>
             <Text>
-              The following extensions failed to migrate. Please try installing
-              them manually. To see other changes, Gemini CLI must be restarted.
-              Press {"'q'"} to quit.
+              以下扩展迁移失败。请尝试手动安装它们。要查看其他更改，必须重新启动 Gemini CLI。
+              按 {'q'} 退出。
             </Text>
             <Box flexDirection="column" marginTop={1} marginLeft={2}>
               {failedExtensions.map((failed) => (
@@ -58,8 +57,8 @@ export function WorkspaceMigrationDialog(props: {
           </>
         ) : (
           <Text>
-            Migration complete. To see changes, Gemini CLI must be restarted.
-            Press {"'q'"} to quit.
+            迁移完成。要查看更改，必须重新启动 Gemini CLI。
+            按 {'q'} 退出。
           </Text>
         )}
       </Box>
@@ -73,14 +72,14 @@ export function WorkspaceMigrationDialog(props: {
       borderColor={Colors.Gray}
       padding={1}
     >
-      <Text bold>Workspace-level extensions are deprecated{'\n'}</Text>
-      <Text>Would you like to install them at the user level?</Text>
+      <Text bold>工作区级扩展已弃用
+</Text>
+      <Text>您想在用户级别安装它们吗？</Text>
       <Text>
-        The extension definition will remain in your workspace directory.
+        扩展定义将保留在您的工作区目录中。
       </Text>
       <Text>
-        If you opt to skip, you can install them manually using the extensions
-        install command.
+        如果您选择跳过，可以使用扩展安装命令手动安装它们。
       </Text>
 
       <Box flexDirection="column" marginTop={1} marginLeft={2}>
@@ -91,8 +90,8 @@ export function WorkspaceMigrationDialog(props: {
       <Box marginTop={1}>
         <RadioButtonSelect
           items={[
-            { label: 'Install all', value: 'migrate' },
-            { label: 'Skip', value: 'skip' },
+            { label: '安装所有', value: 'migrate' },
+            { label: '跳过', value: 'skip' },
           ]}
           onSelect={(value: string) => {
             if (value === 'migrate') {

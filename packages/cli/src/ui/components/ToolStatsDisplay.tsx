@@ -67,7 +67,7 @@ export const ToolStatsDisplay: React.FC = () => {
         paddingY={1}
         paddingX={2}
       >
-        <Text>No tool calls have been made in this session.</Text>
+        <Text>此会话中未进行任何工具调用。</Text>
       </Box>
     );
   }
@@ -101,23 +101,23 @@ export const ToolStatsDisplay: React.FC = () => {
       width={70}
     >
       <Text bold color={Colors.AccentPurple}>
-        Tool Stats For Nerds
+        给技术宅的工具统计
       </Text>
       <Box height={1} />
 
       {/* Header */}
       <Box>
         <Box width={TOOL_NAME_COL_WIDTH}>
-          <Text bold>Tool Name</Text>
+          <Text bold>工具名称</Text>
         </Box>
         <Box width={CALLS_COL_WIDTH} justifyContent="flex-end">
-          <Text bold>Calls</Text>
+          <Text bold>调用次数</Text>
         </Box>
         <Box width={SUCCESS_RATE_COL_WIDTH} justifyContent="flex-end">
-          <Text bold>Success Rate</Text>
+          <Text bold>成功率</Text>
         </Box>
         <Box width={AVG_DURATION_COL_WIDTH} justifyContent="flex-end">
-          <Text bold>Avg Duration</Text>
+          <Text bold>平均持续时间</Text>
         </Box>
       </Box>
 
@@ -139,12 +139,12 @@ export const ToolStatsDisplay: React.FC = () => {
       <Box height={1} />
 
       {/* User Decision Summary */}
-      <Text bold>User Decision Summary</Text>
+      <Text bold>用户决策摘要</Text>
       <Box>
         <Box
           width={TOOL_NAME_COL_WIDTH + CALLS_COL_WIDTH + SUCCESS_RATE_COL_WIDTH}
         >
-          <Text color={Colors.LightBlue}>Total Reviewed Suggestions:</Text>
+          <Text color={Colors.LightBlue}>总审查建议:</Text>
         </Box>
         <Box width={AVG_DURATION_COL_WIDTH} justifyContent="flex-end">
           <Text>{totalReviewed}</Text>
@@ -154,7 +154,7 @@ export const ToolStatsDisplay: React.FC = () => {
         <Box
           width={TOOL_NAME_COL_WIDTH + CALLS_COL_WIDTH + SUCCESS_RATE_COL_WIDTH}
         >
-          <Text> » Accepted:</Text>
+          <Text> » 已接受:</Text>
         </Box>
         <Box width={AVG_DURATION_COL_WIDTH} justifyContent="flex-end">
           <Text color={Colors.AccentGreen}>{totalDecisions.accept}</Text>
@@ -164,7 +164,7 @@ export const ToolStatsDisplay: React.FC = () => {
         <Box
           width={TOOL_NAME_COL_WIDTH + CALLS_COL_WIDTH + SUCCESS_RATE_COL_WIDTH}
         >
-          <Text> » Rejected:</Text>
+          <Text> » 已拒绝:</Text>
         </Box>
         <Box width={AVG_DURATION_COL_WIDTH} justifyContent="flex-end">
           <Text color={Colors.AccentRed}>{totalDecisions.reject}</Text>
@@ -174,7 +174,7 @@ export const ToolStatsDisplay: React.FC = () => {
         <Box
           width={TOOL_NAME_COL_WIDTH + CALLS_COL_WIDTH + SUCCESS_RATE_COL_WIDTH}
         >
-          <Text> » Modified:</Text>
+          <Text> » 已修改:</Text>
         </Box>
         <Box width={AVG_DURATION_COL_WIDTH} justifyContent="flex-end">
           <Text color={Colors.AccentYellow}>{totalDecisions.modify}</Text>
@@ -195,7 +195,7 @@ export const ToolStatsDisplay: React.FC = () => {
         <Box
           width={TOOL_NAME_COL_WIDTH + CALLS_COL_WIDTH + SUCCESS_RATE_COL_WIDTH}
         >
-          <Text> Overall Agreement Rate:</Text>
+          <Text> 总体同意率:</Text>
         </Box>
         <Box width={AVG_DURATION_COL_WIDTH} justifyContent="flex-end">
           <Text bold color={totalReviewed > 0 ? agreementColor : undefined}>

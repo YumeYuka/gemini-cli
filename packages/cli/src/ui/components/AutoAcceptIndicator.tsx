@@ -23,13 +23,13 @@ export const AutoAcceptIndicator: React.FC<AutoAcceptIndicatorProps> = ({
   switch (approvalMode) {
     case ApprovalMode.AUTO_EDIT:
       textColor = Colors.AccentGreen;
-      textContent = 'accepting edits';
-      subText = ' (shift + tab to toggle)';
+      textContent = '接受编辑';
+      subText = ' (Shift + Tab 切换)';
       break;
     case ApprovalMode.YOLO:
       textColor = Colors.AccentRed;
-      textContent = 'YOLO mode';
-      subText = ' (ctrl + y to toggle)';
+      textContent = 'YOLO 模式';
+      subText = ' (Ctrl + Y 切换)';
       break;
     case ApprovalMode.DEFAULT:
     default:

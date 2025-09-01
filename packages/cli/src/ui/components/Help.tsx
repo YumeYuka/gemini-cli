@@ -23,46 +23,46 @@ export const Help: React.FC<Help> = ({ commands }) => (
   >
     {/* Basics */}
     <Text bold color={Colors.Foreground}>
-      Basics:
+      基础:
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
-        Add context
+        添加上下文
       </Text>
-      : Use{' '}
+      : 使用{' '}
       <Text bold color={Colors.AccentPurple}>
         @
       </Text>{' '}
-      to specify files for context (e.g.,{' '}
+      来指定上下文文件 (例如,{' '}
       <Text bold color={Colors.AccentPurple}>
         @src/myFile.ts
       </Text>
-      ) to target specific files or folders.
+      ) 来定位特定的文件或文件夹。
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
-        Shell mode
+        Shell 模式
       </Text>
-      : Execute shell commands via{' '}
+      : 通过{' '}
       <Text bold color={Colors.AccentPurple}>
         !
       </Text>{' '}
-      (e.g.,{' '}
+      执行 shell 命令 (例如,{' '}
       <Text bold color={Colors.AccentPurple}>
         !npm run start
       </Text>
-      ) or use natural language (e.g.{' '}
+      ) 或使用自然语言 (例如,{' '}
       <Text bold color={Colors.AccentPurple}>
-        start server
+        启动服务器
       </Text>
-      ).
+      )。
     </Text>
 
     <Box height={1} />
 
     {/* Commands */}
     <Text bold color={Colors.Foreground}>
-      Commands:
+      命令:
     </Text>
     {commands
       .filter((command) => command.description)
@@ -92,83 +92,80 @@ export const Help: React.FC<Help> = ({ commands }) => (
         {' '}
         !{' '}
       </Text>
-      - shell command
+      - shell 命令
     </Text>
 
     <Box height={1} />
 
     {/* Shortcuts */}
     <Text bold color={Colors.Foreground}>
-      Keyboard Shortcuts:
+      键盘快捷键:
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Alt+Left/Right
       </Text>{' '}
-      - Jump through words in the input
+      - 在输入中按词跳转
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Ctrl+C
       </Text>{' '}
-      - Quit application
+      - 退出应用
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         {process.platform === 'win32' ? 'Ctrl+Enter' : 'Ctrl+J'}
       </Text>{' '}
       {process.platform === 'linux'
-        ? '- New line (Alt+Enter works for certain linux distros)'
-        : '- New line'}
+        ? '- 换行 (Alt+Enter 在某些 linux 发行版中有效)'
+        : '- 换行'}
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Ctrl+L
       </Text>{' '}
-      - Clear the screen
+      - 清除屏幕
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         {process.platform === 'darwin' ? 'Ctrl+X / Meta+Enter' : 'Ctrl+X'}
       </Text>{' '}
-      - Open input in external editor
+      - 在外部编辑器中打开输入
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Ctrl+Y
       </Text>{' '}
-      - Toggle YOLO mode
+      - 切换 YOLO 模式
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Enter
       </Text>{' '}
-      - Send message
+      - 发送消息
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Esc
       </Text>{' '}
-      - Cancel operation / Clear input (double press)
+      - 取消操作 / 清除输入 (双击)
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Shift+Tab
       </Text>{' '}
-      - Toggle auto-accepting edits
+      - 切换自动接受编辑
     </Text>
     <Text color={Colors.Foreground}>
       <Text bold color={Colors.AccentPurple}>
         Up/Down
       </Text>{' '}
-      - Cycle through your prompt history
+      - 循环浏览您的提示历史
     </Text>
     <Box height={1} />
     <Text color={Colors.Foreground}>
-      For a full list of shortcuts, see{' '}
-      <Text bold color={Colors.AccentPurple}>
-        docs/keyboard-shortcuts.md
-      </Text>
+      有关完整的快捷键列表，请参阅{' '}
     </Text>
   </Box>
 );

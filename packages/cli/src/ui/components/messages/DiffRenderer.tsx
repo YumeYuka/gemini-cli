@@ -109,7 +109,7 @@ export const DiffRenderer: React.FC<DiffRendererProps> = ({
 }) => {
   const screenReaderEnabled = useIsScreenReaderEnabled();
   if (!diffContent || typeof diffContent !== 'string') {
-    return <Text color={Colors.AccentYellow}>No diff content.</Text>;
+    return <Text color={Colors.AccentYellow}>无差异内容。</Text>;
   }
 
   const parsedLines = parseDiffWithLineNumbers(diffContent);
@@ -117,7 +117,7 @@ export const DiffRenderer: React.FC<DiffRendererProps> = ({
   if (parsedLines.length === 0) {
     return (
       <Box borderStyle="round" borderColor={Colors.Gray} padding={1}>
-        <Text dimColor>No changes detected.</Text>
+        <Text dimColor>未检测到更改。</Text>
       </Box>
     );
   }
@@ -197,7 +197,7 @@ const renderDiffContent = (
   if (displayableLines.length === 0) {
     return (
       <Box borderStyle="round" borderColor={Colors.Gray} padding={1}>
-        <Text dimColor>No changes detected.</Text>
+        <Text dimColor>未检测到更改。</Text>
       </Box>
     );
   }

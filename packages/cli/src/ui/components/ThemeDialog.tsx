@@ -221,7 +221,7 @@ export function ThemeDialog({
         {/* Left Column: Selection */}
         <Box flexDirection="column" width="45%" paddingRight={2}>
           <Text bold={currentFocusedSection === 'theme'} wrap="truncate">
-            {currentFocusedSection === 'theme' ? '> ' : '  '}Select Theme{' '}
+            {currentFocusedSection === 'theme' ? '> ' : '  '} 选择主题{' '}
             <Text color={Colors.Gray}>{otherScopeModifiedMessage}</Text>
           </Text>
           <RadioButtonSelect
@@ -240,7 +240,7 @@ export function ThemeDialog({
           {showScopeSelection && (
             <Box marginTop={1} flexDirection="column">
               <Text bold={currentFocusedSection === 'scope'} wrap="truncate">
-                {currentFocusedSection === 'scope' ? '> ' : '  '}Apply To
+                {currentFocusedSection === 'scope' ? '> ' : '  '}应用于
               </Text>
               <RadioButtonSelect
                 items={scopeItems}
@@ -256,7 +256,7 @@ export function ThemeDialog({
 
         {/* Right Column: Preview */}
         <Box flexDirection="column" width="55%" paddingLeft={2}>
-          <Text bold>Preview</Text>
+          <Text bold>预览</Text>
           {/* Get the Theme object for the highlighted theme, fall back to default if not found */}
           {(() => {
             const previewTheme =
@@ -303,8 +303,8 @@ def fibonacci(n):
       </Box>
       <Box marginTop={1}>
         <Text color={Colors.Gray} wrap="truncate">
-          (Use Enter to select
-          {showScopeSelection ? ', Tab to change focus' : ''})
+          (使用 Enter 选择
+          {showScopeSelection ? ', Tab 切换焦点' : ''})
         </Text>
       </Box>
     </Box>

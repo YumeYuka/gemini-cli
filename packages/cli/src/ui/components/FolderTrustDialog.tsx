@@ -90,8 +90,7 @@ export const FolderTrustDialog: React.FC<FolderTrustDialogProps> = ({
       {isRestarting && (
         <Box marginLeft={1} marginTop={1}>
           <Text color={Colors.AccentYellow}>
-            To see changes, Gemini CLI must be restarted. Press r to exit and
-            apply changes now.
+            要查看更改，必须重新启动 Gemini CLI。按 r 退出并立即应用更改。
           </Text>
         </Box>
       )}
