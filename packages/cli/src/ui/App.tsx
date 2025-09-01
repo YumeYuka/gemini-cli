@@ -1262,14 +1262,14 @@ const App = ({ config, settings, startupWarnings = [], version }: AppProps) => {
                   )}
                   {ctrlCPressedOnce ? (
                     <Text color={Colors.AccentYellow}>
-                      Press Ctrl+C again to exit.
+                      再次按下 Ctrl+C 退出。
                     </Text>
                   ) : ctrlDPressedOnce ? (
                     <Text color={Colors.AccentYellow}>
-                      Press Ctrl+D again to exit.
+                      再次按下 Ctrl+D 退出。
                     </Text>
                   ) : showEscapePrompt ? (
-                    <Text color={Colors.Gray}>Press Esc again to clear.</Text>
+                    <Text color={Colors.Gray}>再次按下 Esc 键清除。</Text>
                   ) : (
                     <ContextSummaryDisplay
                       ideContext={ideContextState}

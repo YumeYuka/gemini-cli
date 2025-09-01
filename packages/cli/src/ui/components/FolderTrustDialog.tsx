@@ -50,15 +50,15 @@ export const FolderTrustDialog: React.FC<FolderTrustDialogProps> = ({
 
   const options: Array<RadioSelectItem<FolderTrustChoice>> = [
     {
-      label: 'Trust folder',
+      label: '信任此文件夹',
       value: FolderTrustChoice.TRUST_FOLDER,
     },
     {
-      label: `Trust parent folder (${parentFolder})`,
+      label: `信任父文件夹 (${parentFolder})`,
       value: FolderTrustChoice.TRUST_PARENT,
     },
     {
-      label: "Don't trust (esc)",
+      label: "不信任 (esc)",
       value: FolderTrustChoice.DO_NOT_TRUST,
     },
   ];
@@ -74,11 +74,9 @@ export const FolderTrustDialog: React.FC<FolderTrustDialogProps> = ({
         marginLeft={1}
       >
         <Box flexDirection="column" marginBottom={1}>
-          <Text bold>Do you trust this folder?</Text>
+          <Text bold>您信任此文件夹吗？</Text>
           <Text>
-            Trusting a folder allows Gemini to execute commands it suggests.
-            This is a security feature to prevent accidental execution in
-            untrusted directories.
+            信任文件夹允许 Gemini 执行其建议的命令。这是一项安全功能，可防止在不受信任的目录中意外执行。
           </Text>
         </Box>
 

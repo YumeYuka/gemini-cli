@@ -51,15 +51,15 @@ export const ShellConfirmationDialog: React.FC<
 
   const options: Array<RadioSelectItem<ToolConfirmationOutcome>> = [
     {
-      label: 'Yes, allow once',
+      label: '是，允许一次',
       value: ToolConfirmationOutcome.ProceedOnce,
     },
     {
-      label: 'Yes, allow always for this session',
+      label: '是，本次会话始终允许',
       value: ToolConfirmationOutcome.ProceedAlways,
     },
     {
-      label: 'No (esc)',
+      label: '否 (esc)',
       value: ToolConfirmationOutcome.Cancel,
     },
   ];

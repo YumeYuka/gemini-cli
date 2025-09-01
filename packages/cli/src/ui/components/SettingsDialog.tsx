@@ -642,7 +642,7 @@ export function SettingsDialog({
     >
       <Box flexDirection="column" flexGrow={1}>
         <Text bold color={Colors.AccentBlue}>
-          Settings
+          设置
         </Text>
         <Box height={1} />
         {showScrollUp && <Text color={Colors.Gray}>▲</Text>}
@@ -763,7 +763,7 @@ export function SettingsDialog({
 
         <Box marginTop={1} flexDirection="column">
           <Text bold={focusSection === 'scope'} wrap="truncate">
-            {focusSection === 'scope' ? '> ' : '  '}Apply To
+            {focusSection === 'scope' ? '> ' : '  '}应用于
           </Text>
           <RadioButtonSelect
             items={scopeItems}
@@ -777,12 +777,11 @@ export function SettingsDialog({
 
         <Box height={1} />
         <Text color={Colors.Gray}>
-          (Use Enter to select, Tab to change focus)
+          (使用 Enter 键选择，Tab 键切换焦点)
         </Text>
         {showRestartPrompt && (
           <Text color={Colors.AccentYellow}>
-            To see changes, Gemini CLI must be restarted. Press r to exit and
-            apply changes now.
+            要查看更改，必须重新启动 Gemini CLI。按 r 键退出并立即应用更改。
           </Text>
         )}
       </Box>

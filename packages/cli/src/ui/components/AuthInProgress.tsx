@@ -53,8 +53,7 @@ export function AuthInProgress({
       ) : (
         <Box>
           <Text>
-            <Spinner type="dots" /> Waiting for auth... (Press ESC or CTRL+C to
-            cancel)
+            <Spinner type="dots" /> 等待认证... (按 ESC 或 CTRL+C 取消)
           </Text>
         </Box>
       )}

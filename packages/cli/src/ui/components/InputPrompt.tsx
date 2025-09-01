@@ -57,7 +57,7 @@ export const InputPrompt: React.FC<InputPromptProps> = ({
   config,
   slashCommands,
   commandContext,
-  placeholder = '  Type your message or @path/to/file',
+  placeholder = '  输入您的消息或 @文件路径',
   focus = true,
   inputWidth,
   suggestionsWidth,

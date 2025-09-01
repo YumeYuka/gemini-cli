@@ -58,25 +58,25 @@ export function AuthDialog({
       process.env['GEMINI_API_KEY'] &&
       (!defaultAuthType || defaultAuthType === AuthType.USE_GEMINI)
     ) {
-      return 'Existing API key detected (GEMINI_API_KEY). Select "Gemini API Key" option to use it.';
+      return '检测到现有 API 密钥 (GEMINI_API_KEY)。请选择“Gemini API 密钥”选项以使用它。';
     }
     return null;
   });
   const items = [
     {
-      label: 'Login with Google',
+      label: '使用 Google 登录',
       value: AuthType.LOGIN_WITH_GOOGLE,
     },
     ...(process.env['CLOUD_SHELL'] === 'true'
       ? [
           {
-            label: 'Use Cloud Shell user credentials',
+            label: '使用 Cloud Shell 用户凭据',
             value: AuthType.CLOUD_SHELL,
           },
         ]
       : []),
     {
-      label: 'Use Gemini API Key',
+      label: '使用 Gemini API 密钥',
       value: AuthType.USE_GEMINI,
     },
     { label: 'Vertex AI', value: AuthType.USE_VERTEX_AI },

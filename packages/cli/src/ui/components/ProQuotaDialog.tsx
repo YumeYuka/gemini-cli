@@ -22,11 +22,11 @@ export function ProQuotaDialog({
 }: ProQuotaDialogProps): React.JSX.Element {
   const items = [
     {
-      label: 'Change auth (executes the /auth command)',
+      label: '更改认证（执行 /auth 命令）',
       value: 'auth' as const,
     },
     {
-      label: `Continue with ${fallbackModel}`,
+      label: `继续使用 ${fallbackModel}`,
       value: 'continue' as const,
     },
   ];
